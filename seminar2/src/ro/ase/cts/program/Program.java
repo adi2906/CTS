@@ -2,7 +2,8 @@ package ro.ase.cts.program;
 
 
 import ro.ase.cts.clase.Angajat;
-import ro.ase.cts.clase.Utils;
+import ro.ase.cts.clase.readers.AngajatiReader;
+
 import java.io.FileNotFoundException;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Program {
 	public static void main(String[] args) {
 		List<Angajat> listaAngajati;
 		try {
-			listaAngajati = Utils.readAngajati("Seminar2/angajati.txt");
+			listaAngajati = AngajatiReader.readAngajati("Seminar2/angajati.txt");
 			for(Angajat angajat:listaAngajati)
 				System.out.println(angajat.toString());
 		} catch (FileNotFoundException e) {
