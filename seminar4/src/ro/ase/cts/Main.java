@@ -2,6 +2,7 @@ package ro.ase.cts;
 
 import ro.ase.cts.clase.Parlament;
 import ro.ase.cts.clase.ParlamentLazy;
+import ro.ase.cts.clase.Rucsac;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,11 +21,21 @@ public class Main {
         System.out.println(parlament1.toString());
         System.out.println(parlament2.toString());
 
-        ParlamentLazy parlamentLazy1 = ParlamentLazy.getInstance("Serbia", 400, 8, "Serb");
+        ParlamentLazy parlamentLazy1 = ParlamentLazy.getInstance("Romania", 100, 2, "Ro");
         ParlamentLazy parlamentLazy2 = ParlamentLazy.getInstance("UK", 500, 2, "UK");
 
         System.out.println(parlamentLazy1.toString());
         System.out.println(parlamentLazy2.toString());
+
+        System.out.println("========================");
+
+        Rucsac rucsac1 = Rucsac.getInstance("Nike", 149.99f, 0.5f);
+        Rucsac rucsac2 = Rucsac.getInstance("Puma", 100, 1.5f);
+
+        System.out.println(rucsac1);
+        System.out.println(rucsac2);
+
+
 
 
     }
