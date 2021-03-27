@@ -13,5 +13,8 @@ public class Main {
         System.out.println(brancardier1);
 
 
+        PersonalMedical medic2 = FactorySingleTon.getInstance().create(TipPersonal.MEDIC, "Petre", 13123);
+
+        System.out.println(medic2);
     }
 }
