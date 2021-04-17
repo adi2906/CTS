@@ -1,7 +1,6 @@
 package ro.ase.cts.facade;
 
-class Masa {
-
+public class Masa {
     private int nrMasa;
     private int nrLocuri;
 
