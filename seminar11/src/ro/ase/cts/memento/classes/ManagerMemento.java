@@ -1,0 +1,31 @@
+package ro.ase.cts.memento.classes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ManagerMemento {
+
+    private List<Memento> listaMemento;
+
+    public ManagerMemento() {
+        this.listaMemento = new ArrayList<>();
+    }
+
+    public void adaugaMemento(Memento memento) {
+        this.listaMemento.add(memento);
+    }
+
+    public Memento getLastMemento(){
+        if(!(this.listaMemento.isEmpty())){
+            return this.listaMemento.get(this.listaMemento.size()-1);
+        }
+        throw new IndexOutOfBoundsException();
+    }
+
+    public Memento getMemento(int index){
+        if (index >= 0 && index < this.listaMemento.size()){
+            return this.listaMemento.get(index);
+        }
+        throw new IndexOutOfBoundsException();
+    }
+}
