@@ -44,11 +44,80 @@ public class StudentTest {
     }
 
     @Test
-    public void adaugaNota() {
+    public void testAdaugaNota() {
         Student student = new Student();
         int nota = 10;
         student.adaugaNota(nota);
         assertEquals(nota, student.getNota(0));
+    }
+
+    @Test
+    public void testGetNota(){
+        Student student = new Student();
+        student.adaugaNota(5);
+        student.adaugaNota(7);
+        student.adaugaNota(10);
+        student.adaugaNota(9);
+
+        assertEquals(9, student.getNota(3));
+    }
+
+    @Test
+    public void testAdaugaOSinguraNota(){
+        Student student = new Student();
+        int nota = 10;
+        student.adaugaNota(nota);
+        assertEquals(1, student.getNote().size());
+    }
+
+    @Test
+    public void testAdaugaNotaIncorecta() {
+        Student student = new Student();
+//        Test de error condition (exception)
+        try {
+            student.adaugaNota(-1);
+            fail("Nu trebuia sa ajunga aici. Metoda nu arunca exceptie!");
+        }
+        catch (IllegalArgumentException ex) {
+        }
+        catch (Exception e) {
+            fail("Nu arunca o exceptie de tipul IllegalArgument.");
+        }
+    }
+
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAdaugaNotaIncorectaJunit4() {
+        Student student = new Student();
+            student.adaugaNota(-1);
+
+    }
+
+
+    @Test
+    public void testStudentulAreRestante(){
+        Student student = new Student();
+        student.adaugaNota(3);
+        boolean rezultat = student.areRestante();
+        assertTrue(rezultat);
+    }
+
+    @Test
+    public void testStudentulNuAreRestante(){
+        Student student = new Student();
+        student.adaugaNota(7);
+        boolean rezultat = student.areRestante();
+        assertFalse(rezultat);
+    }
+
+    @Test
+    public void testCalculeazaMedieCorecta(){
+        Student student = new Student();
+        student.adaugaNota(10);
+        student.adaugaNota(9);
+//        assertEquals(9.5, student.calculeazaMedie()); nu merge
+        // de fiecare data cand avem de calculat valori reale:
+        assertEquals(9.5, student.calculeazaMedie(), 0.01); // delta =marja de eroare  se asteapta sa fie in intervalul [expected-delta; expected+delta]
     }
 
 }
